@@ -21,7 +21,7 @@ app.get('/room/:id', (req, res) => {
 
 app.post('/room', (req, res) => {
   const { room, user } = req.body;
-  console.log(room, user);
+  //console.log(room, user);
   if (!rooms.has(room)) {
     rooms.set(
       room,
@@ -49,7 +49,7 @@ io.on('connection', (socket) => {
       time,
       text,
     };
-    console.log(obj);
+    //console.log(obj);
     rooms.get(room).get('messages').push(obj);
     socket.to(room).broadcast.emit('ROOM:NEW_MESSAGE', obj);
   });
@@ -63,7 +63,7 @@ io.on('connection', (socket) => {
     });
   });
 
-  console.log('user connected', socket.id);
+  //console.log('user connected', socket.id);
 });
 
 server.listen(8000, (err) => {

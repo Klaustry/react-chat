@@ -3,8 +3,6 @@ import socket from '../socket';
 import date from 'date-and-time';
 
 
-
-
 function Chat({ users, messages, user, room, onAddMessage }) {
   const [messageValue, setMessageValue] = React.useState('');
   const messagesRef = React.useRef(null);
@@ -29,7 +27,11 @@ function Chat({ users, messages, user, room, onAddMessage }) {
   return (
     <div>
       <h4 className="mb-4 text-center">Вы находитесь в чате-комнате: <b>{room}</b></h4>
-      <h6 className="mb-4 text-center">Пригласить в чат: <a href={ "/room/" + room }>{ window.location.host + "/room/" + room }</a></h6>
+      <h6 className="mb-4 text-center">Пригласить в чат: 
+        <a href={ "/room/" + room } target="_blank" rel="noopener noreferrer">
+         { window.location.host + "/room/" + room }
+         </a>
+      </h6>
     <div className="chat">
       
       <div className="chat-users">
@@ -38,7 +40,7 @@ function Chat({ users, messages, user, room, onAddMessage }) {
         <p>Онлайн ({users.length}):</p>
         <ul>
           {users.map((name, index) => (
-            <li key={name + index}>{name}
+            <li>{name}
                 <span className="position-absolute top-0 start-100 translate-middle p-1 bg-success border border-light rounded-circle text-center">
             </span>
             </li>

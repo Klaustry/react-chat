@@ -16,9 +16,7 @@ function Login({ onLogin }) {
   const onEnter = async () => {
     if (!user) {
       return alert('Введите ник');
-    }
-    
-    
+    } 
     const obj = {
       room,
       user,

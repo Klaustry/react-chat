@@ -1,8 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
 import socket from './socket';
-
 import store from './store';
 import Login from './components/Login';
 import Chat from './components/Chat';
@@ -41,8 +39,6 @@ function App() {
       type: 'NEW_MESSAGE',
       payload: message,
     });
-
-    console.log(state);
   };
 
   React.useEffect(() => {
@@ -50,7 +46,6 @@ function App() {
     socket.on('ROOM:NEW_MESSAGE', addMessage);
   }, []);
 
-  window.socket = socket;
 
   return (
     <div className="main">
